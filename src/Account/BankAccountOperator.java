@@ -13,7 +13,8 @@ public class BankAccountOperator {
             System.out.println("1. Deposit");
             System.out.println("2. Withdraw");
             System.out.println("3. Print Balance");
-            System.out.println("4. Exit");
+            System.out.println("4. Transfer to another account");
+            System.out.println("5. Exit");
             System.out.print("Enter choice: ");
             int choice = scanner.nextInt();
 
@@ -33,6 +34,10 @@ public class BankAccountOperator {
                     account1.printBalance();
                     break;
                 case 4:
+                    System.out.println("Amount you need to transfer: ");
+                    double transferAmount = scanner.nextDouble();
+                    account1.transfer(transferAmount);
+                case 5:
                     System.out.println("Exiting the application.");
                     scanner.close();
                     return;

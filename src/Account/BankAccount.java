@@ -1,7 +1,11 @@
 package Account;
 
+import java.util.Scanner;
+
 public class BankAccount {
+    Scanner scanner = new Scanner(System.in);
     private double balance;
+
     public BankAccount() {
         // Initialize balance to 0
         balance = 0.0;
@@ -27,18 +31,20 @@ public class BankAccount {
 
     // Method to print current balance
     public void printBalance() {
+
         System.out.println("Your Current Balance: " + balance);
     }
 
     // Transfer amount from one account to another
-    public void transfer(BankAccount destinationAccount, double amount) {
+    public void transfer(double amount) {
         // Checking is there sufficient amount to transfer
         if (balance >= amount) {
             // Withdraw amount from source account
+            System.out.println("Account number you need to transfer: ");
+            String transferAccountNo = scanner.nextLine();
             withdraw(amount);
             // Deposit amount to destination account
-            destinationAccount.deposit(amount);
-            System.out.println("Transferred " + amount + " to another account.");
+            System.out.println("Transferred " + amount + " to " + transferAccountNo + " account.");
         } else {
             System.out.println("Insufficient balance for transfer.");
         }
